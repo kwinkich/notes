@@ -1,12 +1,13 @@
 mod create;
+mod edit;
 mod get_event;
 mod get_files;
 mod hello;
 mod inputs;
-
+mod open;
 fn main() {
     hello::hello();
-    println!("\nC - Create notes\nD - Display all notes\nE - Exit");
+    println!("\nC - Create notes\nD - Display all notes\nR - Read selected notes\nE - Edit file\nX - Exit");
     loop {
         let event = get_event::get_event();
 
@@ -44,7 +45,15 @@ fn main() {
                     }
                 }
             }
+            'R' => {
+                let notes_name = inputs::notes_input();
+                let _ = open::notes_read(&notes_name);
+            }
             'E' => {
+                let notes_name = inputs::notes_input();
+                let _ = edit::edit_files(&notes_name);
+            }
+            'X' => {
                 println!("Good bye!");
                 break;
             }
