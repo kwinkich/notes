@@ -4,7 +4,7 @@ pub fn get_event() -> char {
     let mut event = String::new();
     let mut stdout = io::stdout();
 
-    print!("\nВыберете действие: ");
+    print!("\nSelect event: ");
     stdout.flush().expect("Failed to flush output");
     io::stdin()
         .read_line(&mut event)

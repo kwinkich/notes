@@ -7,7 +7,7 @@ mod inputs;
 mod open;
 fn main() {
     hello::hello();
-    println!("\nC - Create notes\nD - Display all notes\nR - Read selected notes\nE - Edit file\nX - Exit");
+    print!("\nC - Create notes\nD - Display all notes\nR - Read selected notes\nE - Edit file\nX - Exit\n");
     loop {
         let event = get_event::get_event();
 
@@ -37,7 +37,7 @@ fn main() {
             }
             'D' => {
                 let files_with_extensions = get_files::get_files();
-                println!("All notes!");
+                println!("\nAll notes!");
                 for file in &files_with_extensions {
                     let mut parts = file.split('.');
                     if let Some(name) = parts.next() {
@@ -54,7 +54,7 @@ fn main() {
                 let _ = edit::edit_files(&notes_name);
             }
             'X' => {
-                println!("Good bye!");
+                println!("Good bye!\n");
                 break;
             }
             _ => {
