@@ -10,7 +10,7 @@ fn main() {
     hello::hello();
 
     loop {
-        println!("\nC - Create notes\nA - Display all notes\nR - Read selected notes\nE - Edit file\nD - deleted note\nX - Exit");
+        println!("\nC - Create notes\nA - Display all notes\nR - Reading selected notes\nE - Edit note\nD - Deleting note\nX - Exit");
 
         let event = get_event::get_event();
 
