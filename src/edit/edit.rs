@@ -12,7 +12,12 @@ pub fn edit_files(file_name: &str) -> Result<()> {
     let mut file_data = String::new();
     file.read_to_string(&mut file_data)
         .expect("Error reading file!");
-    println!("\nFile data\n{}", file_data);
+
+    if file_data.is_empty() {
+        println!("File data is empty");
+    } else {
+        println!("File data:{}", file_data);
+    }
 
     println!("Enter your note: ");
     let mut input = String::new();

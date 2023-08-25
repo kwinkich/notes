@@ -1,3 +1,3 @@
 pub fn hello() {
-    print!("\n_______ HELLO RUST NOTER _______");
+    println!("\n_______ HELLO RUST NOTER _______");
 }

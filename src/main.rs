@@ -10,7 +10,7 @@ fn main() {
     hello::hello();
 
     loop {
-        print!("\nC - Create notes\nA - Display all notes\nR - Read selected notes\nE - Edit file\nD - deleted note\nX - Exit\n");
+        println!("\nC - Create notes\nA - Display all notes\nR - Read selected notes\nE - Edit file\nD - deleted note\nX - Exit");
 
         let event = get_event::get_event();
 
@@ -61,7 +61,7 @@ fn main() {
                 let _ = deleted::deleted(&notes_name);
             }
             'X' => {
-                println!("Good bye!\n");
+                println!("Good bye!");
                 break;
             }
             _ => {
