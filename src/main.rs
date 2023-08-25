@@ -1,4 +1,5 @@
 mod create;
+mod deleted;
 mod edit;
 mod get_event;
 mod get_files;
@@ -7,8 +8,10 @@ mod inputs;
 mod open;
 fn main() {
     hello::hello();
-    print!("\nC - Create notes\nD - Display all notes\nR - Read selected notes\nE - Edit file\nX - Exit\n");
+
     loop {
+        print!("\nC - Create notes\nA - Display all notes\nR - Read selected notes\nE - Edit file\nD - deleted note\nX - Exit\n");
+
         let event = get_event::get_event();
 
         match event {
@@ -30,12 +33,12 @@ fn main() {
                         "A note with the same name already exists. Please choose a different name."
                     );
                 } else if let Err(err) = create::notes_create(&notes_name) {
-                    eprintln!("Error creating notes file: {}\n", err);
+                    println!("Error creating notes file: {}", err);
                 } else {
-                    println!("Notes file created successfully!\n");
+                    println!("Notes file created successfully!");
                 }
             }
-            'D' => {
+            'A' => {
                 let files_with_extensions = get_files::get_files();
                 println!("\nAll notes!");
                 for file in &files_with_extensions {
@@ -52,6 +55,10 @@ fn main() {
             'E' => {
                 let notes_name = inputs::notes_input();
                 let _ = edit::edit_files(&notes_name);
+            }
+            'D' => {
+                let notes_name = inputs::notes_input();
+                let _ = deleted::deleted(&notes_name);
             }
             'X' => {
                 println!("Good bye!\n");
